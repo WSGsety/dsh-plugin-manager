@@ -30,8 +30,8 @@
    `package.json#name`」检查——包名与组合层模块名漂移会直接导致挂载失败
    （找不到模块），正是本次改名最容易漏的点，配非法样例自证。
 5. **README 净化**：移除本地 link 路径；安装节改为 npm registry 优先 + GitHub
-   源备选（pin commit）；标题下注明「npm 包名 / 运行时条目 id」两个标识。
-6. 新增决策记录（本文件）与后续更新 README 的 pin commit。
+   源备选（默认跟随主分支最新版）；标题下注明「npm 包名 / 运行时条目 id」两个标识。
+6. 新增决策记录（本文件）。
 
 ## Alternatives
 
@@ -50,5 +50,5 @@
 - npm 发布需 npm 账号（`npm login`），门禁在 `prepublishOnly` 自动把关；
   发布内容由 `files` 白名单控制（lib/types、client、cordis.patch.yml、README、
   LICENSE），test/scripts/decisions 不进包。
-- README pin 的 GitHub ref 更新到包含改名的新 commit，保证 GitHub 安装路径
-  拿到与 npm 一致的产物。
+- README 的 GitHub 安装命令不指定 ref，默认跟随主分支最新版；需要严格复现时，
+  用户可自行追加 commit ref。

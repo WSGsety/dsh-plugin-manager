@@ -1,4 +1,4 @@
-# 决策记录：补全官方标准形态（types / 门禁 / 决策记录 / 安装 pin）
+# 决策记录：补全官方标准形态（types / 门禁 / 决策记录 / 安装说明）
 
 - 日期：2026-08-15
 - 状态：implemented
@@ -13,7 +13,7 @@ make-dsh-plugin 的 bundle/entry 契约）审计确认：插件的功能形态�
 1. 无 `types` 类型声明——TS 消费者无任何提示。
 2. 无门禁脚本——语法、manifest 契约、测试没有一条命令的机械检查。
 3. 无决策记录目录——非平凡改动的取舍不可追溯。
-4. GitHub 安装说明未 pin commit——安装不可复现。
+4. GitHub 安装说明未明确版本跟随策略。
 
 ## Decision
 
@@ -32,8 +32,8 @@ make-dsh-plugin 的 bundle/entry 契约）审计确认：插件的功能形态�
    `package.json#scripts.gate` 一键运行全量。
 3. **决策记录**：新增 `decisions/implemented/` 目录，本文件为首篇记录；后续每个
    非平凡改动沿用（problem → decision → alternatives → consequences）。
-4. **安装 pin**：`package.json` 增加 `homepage` 字段；README 的 GitHub 安装命令
-   pin 到具体 commit（新提交后更新 pin，保证安装可复现）。
+4. **安装策略**：`package.json` 增加 `homepage` 字段；README 的 GitHub 安装命令
+   不指定 ref，默认跟随主分支最新版；需要严格复现时再追加 commit ref。
 
 ## Alternatives
 
@@ -55,5 +55,5 @@ make-dsh-plugin 的 bundle/entry 契约）审计确认：插件的功能形态�
 - 门禁一条命令全量验证（26 项检查），CI/本地开发共用；自检保证门禁拒绝逻辑
   不失效。
 - 决策历史可追溯，后续改动沿用本模板。
-- README pin commit 后安装可复现；副作用是每次发布需同步 pin（仓库维护惯例，
-  已写入 README 注释）。
+- README 默认安装主分支最新版，无需每次发布同步 ref；需要严格复现的用户可自行
+  固定 commit。

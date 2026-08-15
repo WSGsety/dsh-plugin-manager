@@ -11,8 +11,8 @@ DSH 网页插件管理：在 Web 设置页直接启用/停用已安装插件。n
 ```bash
 # npm registry（推荐）
 dsh plugin --profile web add @wsgsety/dsh-plugin-manager
-# 或从 GitHub 安装（pin 到具体 commit，保证可复现）
-dsh plugin --profile web add github:WSGsety/dsh-plugin-manager#9cbbcdd59fdce3dd96879924b485ea3e8053d3c2
+# 或从 GitHub 安装（跟随默认分支最新版）
+dsh plugin --profile web add github:WSGsety/dsh-plugin-manager
 # 重启 dsh web（命令行或 DeepSeek Harness 桌面应用）后生效
 ```
 
