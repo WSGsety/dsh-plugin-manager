@@ -1,0 +1,60 @@
+{
+  "name": "@wsgsety/dsh-plugin-manager",
+  "description": "DSH web plugin manager — enable/disable installed plugins from Settings. · DSH 网页插件管理：设置页直接启停已安装插件。",
+  "version": "0.1.1",
+  "type": "module",
+  "main": "lib/index.js",
+  "types": "lib/types/index.d.ts",
+  "license": "MIT",
+  "homepage": "https://github.com/WSGsety/dsh-plugin-manager",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WSGsety/dsh-plugin-manager.git"
+  },
+  "files": [
+    "lib",
+    "client",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "plugin-manager",
+    "deepseek-harness"
+  ],
+  "exports": {
+    ".": {
+      "types": "./lib/types/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./client": "./client/client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "test": "node test/patch.test.mjs && node test/routes.test.mjs && node test/util.test.mjs && node test/client.test.mjs",
+    "gate": "node scripts/gates/run.mjs",
+    "prepublishOnly": "node scripts/gates/run.mjs"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [],
+      "platform": "web"
+    }
+  },
+  "dependencies": {
+    "yaml": "^2.9.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1"
+  }
+}

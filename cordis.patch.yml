@@ -1,0 +1,7 @@
+# dsh bundle patch: inserts this plugin into a profile's layer stack.
+# The id `dsh-plugin-manager` is the stable id used in the UI and in the
+# user patch layer; the loader entry is self-protected from disable.
+# `name` is the npm package the loader resolves (@wsgsety/dsh-plugin-manager).
+- insert:
+    - id: dsh-plugin-manager
+      name: '@wsgsety/dsh-plugin-manager'
